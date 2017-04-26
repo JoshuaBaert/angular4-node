@@ -6,6 +6,26 @@ module.exports = {
 	},
 	resolve : {
 		extensions: ['.js', '.ts']
+	},
+	module: {
+		loaders: [
+			{
+				test: /\.ts$/,
+				loaders: [
+					'awesome-typescript-loader',
+					'angular2-template-loader',
+					'angular2-router-loader'
+				]
+			},
+			{
+				test: /\.html$/,
+				loader: 'html'
+			},
+			{
+				test: /\.css/,
+				loader: 'raw'
+			}
+		]
 	}
 	
 };
