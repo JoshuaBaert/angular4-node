@@ -19,13 +19,20 @@ module.exports = {
 			},
 			{
 				test: /\.html$/,
-				loader: 'html'
+				loader: 'html-loader'
 			},
 			{
 				test: /\.css/,
-				loader: 'raw'
+				loader: 'raw-loader'
 			}
 		]
-	}
+	},
+	
+	plugins: [
+		new webpack.ContextReplacementPlugin(
+			/angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+			'./src'
+		)
+	]
 	
 };
